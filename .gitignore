@@ -1,8 +1,11 @@
 node_modules
 .idea
-build/
-build.zip
-build.tar.gz
+#build/
+dist
+dist.zip
+dist.tar.gz
+# build.zip
+# build.tar.gz
 npm-debug.log*
 .idea/
 .DS_Store
