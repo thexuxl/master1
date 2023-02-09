@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development' // 是否是开发模式
 module.exports = {
     entry: path.join(__dirname, "../src/index.tsx"),//入口文件
     output: {
-        filename: "static/js/[name].js",//每个输出js的名称
+        filename: "static/js/[name].[chunkhash:8].js",//每个输出js的名称
         path: path.join(__dirname, "../dist"),//打包输出路径
         // clean: true,//webpack4需要，webpack5就内置了
         publicPath: "/"
