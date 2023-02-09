@@ -1,5 +1,6 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const autoprefixer = require("autoprefixer")
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -93,7 +94,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.BASE_ENV': JSON.stringify(process.env.BASE_ENV)
         }),
-
+        new CleanWebpackPlugin() // 引入插件
     ],
     //使用文件缓存
     cache: {

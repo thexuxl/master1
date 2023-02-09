@@ -15,6 +15,7 @@ function App() {
       <img src={ph1} alt="小于10kb的图片" />
       <img src={ph2} alt="大于于10kb的图片sa---" />
       <img src={require("./assets/imgs/phs.png")} alt="大于于10kb的图片" />
+      <img src={require("./assets/imgs/ph.png")} alt="大于于10kb的图片" />
       <div>ceshi </div>
       <p>受控组件</p>
       <input type="text" value={count} onChange={onChange} />
