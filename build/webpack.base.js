@@ -33,13 +33,44 @@ module.exports = {
                 ]
             },
 
+
             {
                 test: /.(less|scss|sass)$/,
                 include: [path.resolve(__dirname, "../src")],
                 use: [
                     isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
-                    "css-loader", "less-loader", 'postcss-loader', 'sass-loader',]
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]_[hash:base64:5]'
+                            }
+                        }
+                    }, "less-loader", 'postcss-loader', 'sass-loader',]
             },
+
+            {
+                test: /\.module\.less$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]_[hash:base64:5]'
+                            }
+                        }
+                    },
+                    {
+                        loader: 'less-loader'
+                    }
+                ]
+            }
+            ,
+
             //图片
             {
                 test: /.(png|jpg|jpeg|gif|svg)$/,

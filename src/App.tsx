@@ -1,6 +1,7 @@
 import React, { useState, lazy, Suspense } from "react";
 // import "./app.css";
 import "./app.less";
+import styles from "./app.less"
 // import "./app.scss";
 import ph1 from "@/assets/imgs/ph.png";
 import ph2 from "@/assets/imgs/phs.png";
@@ -40,7 +41,8 @@ function App() {
   };
   return (
     <div>
-      <div className="smallImg"></div>
+      <div className={styles.title}>weqjnkj</div>
+      <div className="smallImg">sadfadsfsa</div>
 
       {/* <img src={require("./assets/imgs/phs.png")} alt="大于于10kb的图片" />
       <img src={require("./assets/imgs/ph.png")} alt="大于于10kb的图片" /> */}
