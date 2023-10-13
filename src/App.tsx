@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, lazy, Suspense,useRef } from "react";
 // import "./app.css";
 import "./app.less";
 // import "./app.scss";
@@ -27,6 +27,7 @@ const PreloadDemo = lazy(
 );
 
 function App() {
+  let ref = useRef(0);
   const [count, setCounts] = useState("");
   const onChange = (e: any) => {
     setCounts(e.target.value);
@@ -36,33 +37,19 @@ function App() {
   // 点击事件中动态引入css, 设置show为true
   const onClick = () => {
     import("./app.css");
+    console.log("dev")
     setShow(!show);
   };
+  function handleClick() {
+    console.log("dev")
+    ref.current = ref.current + 1;
+    alert('You clicked ' + ref.current + ' times!');
+  }
   return (
     <div>
-      <div className="smallImg"></div>
-
-      {/* <img src={require("./assets/imgs/phs.png")} alt="大于于10kb的图片" />
-      <img src={require("./assets/imgs/ph.png")} alt="大于于10kb的图片" /> */}
-      <Demo1 />
-      <h2 onClick={onClick}>展示</h2>
-      {/* show为true时加载LazyDemo组件 */}
-      {show && (
-        <>
-          <Suspense fallback={null}>
-            <LazyDemo />
-          </Suspense>
-          <Suspense fallback={null}>
-            <PreloadDemo />
-            <LazyDemo />
-            <PreFetchDemo />
-          </Suspense>
-          <Suspense fallback={null}>
-            <PreFetchDemo />
-          </Suspense>
-        </>
-      )}
-      {show && <div>测试试试</div>}
+       <button onClick={handleClick}>
+      Click me!
+    </button>
     </div>
   );
 }
